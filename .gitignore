@@ -1,0 +1,7 @@
+/target/generated-test-sources/
+/target/maven-status/
+/target/test-classes/
+/.idea/
+chromedriver.exe
+# Project exclude paths
+/target/

@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PazaramaTaskSuite">
+    <test name="Task Tests" parallel="false">
+        <classes>
+            <class name="com.pazarama.tests.LoginTest"/>
+            <class name="com.pazarama.tests.AddToFavoriteTest"/>
+            <class name="com.pazarama.tests.SortingByPrice"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter"/>
+    </listeners>
+</suite>
