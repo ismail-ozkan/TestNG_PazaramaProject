@@ -538,11 +538,11 @@ public class BrowserUtils {
         return fluentWait.until(ExpectedConditions.visibilityOf(element)).getText();
     }
 
-    public static String waitWithFluentWaitToClickElement(WebElement element, int timeout) {
+    public static void waitWithFluentWaitToClickElement(WebElement element, int timeout) {
 
         FluentWait<WebDriver> fluentWait = new FluentWait<>(Driver.getDriver()).withTimeout(Duration.ofSeconds(timeout)).pollingEvery(Duration.ofMillis(200)).ignoring(NoSuchElementException.class);
         BrowserUtils.clickWithJS(element);
-        return fluentWait.until(ExpectedConditions.visibilityOf(element)).getText();
+        fluentWait.until(ExpectedConditions.visibilityOf(element)).click();
 
     }
 
