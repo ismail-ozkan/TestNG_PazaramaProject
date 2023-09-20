@@ -59,10 +59,12 @@ public class AddToFavoriteTest extends BaseTest {
         int randomItemNumber = (categoryPage.getItemCountSubCategory() > 80) ? faker.random().nextInt(80) : faker.random().nextInt(categoryPage.getItemCountSubCategory());
 
         // find the item by scrolling down then add item to favorites
-        while (categoryPage.listOfProducts.size() < randomItemNumber) {
+        while (categoryPage.listOfProducts.size() < randomItemNumber-1) {
             BrowserUtils.pageDown(2);
+            BrowserUtils.waitFor(2);
             categoryPage.closeAdvertisementPopup();
         }
+        categoryPage.closeAdvertisementPopup();
         BrowserUtils.waitForClickablityThenClick(categoryPage.likeButtonsOfProducts.get(randomItemNumber), 10);
 
         // Store the chosen item name for assertion

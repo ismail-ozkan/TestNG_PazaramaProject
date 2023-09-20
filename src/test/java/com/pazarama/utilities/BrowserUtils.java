@@ -12,10 +12,10 @@ import java.util.Set;
 
 public class BrowserUtils {
 
-    /*
-This method will accept int (in seconds) and execute Thread.sleep
-for given duration
- */
+    /**
+     * This method will accept int (in seconds) and execute Thread.sleep() for given duration
+     * @param second
+     */
     public static void sleep(int second) {
         second *= 1000;
         try {
@@ -239,11 +239,10 @@ for given duration
      * @param timeout
      */
     public static void waitForClickablityThenClick(WebElement element, int timeout) {
-        BrowserUtils.scrollToElement(element);
-        BrowserUtils.waitForVisibility(element, 20);
-        //BrowserUtils.waitForClickablility(element,10);
+        BrowserUtils.waitForVisibility(element, timeout);
+        BrowserUtils.hover(element);
         BrowserUtils.clickWithActions(element);
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
     }
 
     /**
@@ -393,7 +392,7 @@ for given duration
      * @param element
      */
     public static void clickWithActions(WebElement element) {
-        new Actions(Driver.getDriver()).click(element).build().perform();
+        new Actions(Driver.getDriver()).click(element).perform();
     }
 
     /**
